@@ -5,10 +5,11 @@
     </head>
 
         <body>
+           <center> <h1>Bundeskanzler oder Bundespräsident</h1>
           <form method="post">
-              Vorname<input type="text" name="vname" /> <br />
-              Nachname<input type="text" name="nname" />  <br />
-              Geburtsdatum <input type="date" name="birth" /><br />
+              Vorname<input type="text" name="vname" required/> <br />
+              Nachname<input type="text" name="nname" required />  <br />
+              Geburtsdatum <input type="date" name="birth" required /><br />
               Staatsangehörigkeit
               <Select name="nationality">
                   <option value="Deutsch">Deutsch</option>
@@ -16,13 +17,14 @@
               </select><br />
               <input type="submit" name="submit" value="Submit!" />
               <button><a href="list.php">Liste</a></button>
-          </form>  
+          </form>  </center>
           <?php 
           if((isset($_POST['submit']))==true){
          // if(isset($_POST['birth']) && preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $_POST['birth']) && !empty(trim($_POST['brith'])))
           //{
             $bp = false;
             $bk = false;
+            $error = false;
             $message = array();
 
             $vname = $_POST['vname'];
@@ -51,23 +53,43 @@
             {
                 $message[] = "Sie sind zu jung um Bundeskanzler oder Bundespräsident zu werden.";
             }
-
-
-            foreach($message as $messages)
-            {   
-                    echo"<center><h1>".$messages."</center> </h1>";
-            }
-
-            if($bp == true)
+            if($age <= 0)
             {
-                $bpopen = fopen("bp.csv", "a+");
-                fputcsv($bpopen, array($vname, $nname, $age), ";");
+                $errormessage[] = "Dieses Alter ist ungültig";
+                $error = true;
             }
-            if($bk == true)
+            if($age >= 120)
             {
-                $bkopen = fopen("bk.csv", "a+");
-                fputcsv($bkopen, array($vname, $nname, $age),";");
+                $errormessage[] = "Ihr alter ist unrealistisch";
+                $error = true;
             }
+
+            if($error == false)
+            {
+                foreach($message as $messages)
+                {   
+                        echo"<center><h1>".$messages."</center> </h1>";
+                }
+                if($bp == true)
+                {
+                    $bpopen = fopen("bp.csv", "a+");
+                    fputcsv($bpopen, array($vname, $nname, $age), ";");
+                }
+                if($bk == true)
+                {
+                    $bkopen = fopen("bk.csv", "a+");
+                    fputcsv($bkopen, array($vname, $nname, $age),";");
+                }
+            }
+
+            if($error == true)
+            {
+                foreach($errormessage as $errorm)
+                {
+                    echo"<center><h1>".$errorm."</center> </h1>";
+                }
+            }
+            
 
           }
          
