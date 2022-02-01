@@ -61,12 +61,12 @@
             if($bp == true)
             {
                 $bpopen = fopen("bp.csv", "a+");
-                fputcsv($bpopen, array($vname, $nname, $age,";"));
+                fputcsv($bpopen, array($vname, $nname, $age), ";");
             }
             if($bk == true)
             {
                 $bkopen = fopen("bk.csv", "a+");
-                fputcsv($bkopen, array($vname, $nname, $age,";"));
+                fputcsv($bkopen, array($vname, $nname, $age),";");
             }
 
           }
