@@ -7,24 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        <center><h1>Liste</h1>
+        <center><h1>Liste</h1> <br />
         <h3>Bundeskanzler</h3>
         <?php
         
             $bkopen = fopen("bk.csv","r");
             $bkcsv = file("bk.csv");
-            //$bpopen = file(fopen("bp.csv","r"));
-
-            echo"<table>";
-            echo "<tr>";
-            echo "<th>Vorname<th> <th>Nachname<th> <th>Alter<th>";
-            echo"</tr>";
+            echo"<table class='table table-striped'>";
+            echo"<thead>";
+            echo "<tr scope='row'>";
+            echo "<th scope='col'>Vorname</th><th scope='col'>Nachname</th><th scope='col'>Alter</th>";
+            echo"</tr  scope='row'>";
+            echo"</thead>";
             echo"<tbody>";
             foreach($bkcsv as $bk)
             {       
-
                     $bk = explode(";", $bk);
-                    echo"<tr>";
+                    echo"<tr scope='row'>";
                     for($i = 0; $i <= 2;$i++)
                     {
                     echo"<td>". $bk[$i] ."</td>";
@@ -35,7 +34,29 @@
            echo "</table> </center>";
             
 
-            
+           $bpopen = fopen("bp.csv","r");
+           $bpcsv = file("bp.csv");
+           echo"<br /><center><h3>Bundespräsident</h3>";
+           echo"<table class='table table-striped'>";
+           echo"<thead>";
+           echo "<tr scope='row'>";
+           echo "<th scope='col'>Vorname</th><th scope='col'>Nachname</th><th scope='col'>Alter</th>";
+           echo"</tr  scope='row'>";
+           echo"</thead>";
+           echo"<tbody>";
+           foreach($bpcsv as $bp)
+           {       
+                   $bp = explode(";", $bp);
+                   echo"<tr scope='row'>";
+                   for($i = 0; $i <= 2;$i++)
+                   {
+                   echo"<td>". $bp[$i] ."</td>";
+                   }
+                   echo"</tr>";
+           }
+           echo"</tbody>";
+          echo "</table> </center>";
+           
         ?>
     </body>
 </html> 
