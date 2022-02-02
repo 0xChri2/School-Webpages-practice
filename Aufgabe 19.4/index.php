@@ -9,11 +9,13 @@
             <h1>CD</h1>
                 <form method="post">
                 <h3>CD Anzahl:<input type="number" name="cds" max="1000" min="1"/> <br />
-                Vorname <input type="text" name="vname" /><br />
+                <table><td>
+                <tr>Vorname </tr><tr><input type="text" name="vname" /></tr></td><br />
                 Nachname<input type="text" name="nname" /> <br />
-                Adresse <input type="text" name="adress" placeholder="Musterstrasse 20" /> <br />
+                Adresse <input type="text" name="adress" placeholder="Musterstrasse 20"  /> <br />
                 PLZ:    <input type="text" name="plz" placeholder="40724" min="5" max="5" /> <br />
                 Ort:    <input type="text" name="place" placeholder="Hilden" />
+                </table>
             <input type="submit" name="submit" value="Submit!"/></h3>
         </form>
         <br /><br /><br />
