@@ -20,8 +20,7 @@
           </form>  </center>
           <?php 
           if((isset($_POST['submit']))==true){
-         // if(isset($_POST['birth']) && preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $_POST['birth']) && !empty(trim($_POST['brith'])))
-          //{
+         
             $bp = false;
             $bk = false;
             $error = false;
