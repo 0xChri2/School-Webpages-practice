@@ -1,7 +1,6 @@
 <!DOCTYPE html>
     <head>
         <meta content="utf-8" />
-        
     </head>
 
     <body>
@@ -12,7 +11,7 @@
                 <table><td>
                 <tr>Vorname </tr><tr><input type="text" name="vname" /></tr></td><br />
                 Nachname<input type="text" name="nname" /> <br />
-                Adresse <input type="text" name="adress" placeholder="Musterstrasse 20"  /> <br />
+                Adresse <input type="text" name="address" placeholder="Musterstrasse 20"  /> <br />
                 PLZ:    <input type="text" name="plz" placeholder="40724" min="5" max="5" /> <br />
                 Ort:    <input type="text" name="place" placeholder="Hilden" />
                 </table>
@@ -54,7 +53,21 @@
         </center>
 
         <?php 
-            if(isset($_POST))
+            if(isset($_POST['submit']) == true)
+            {
+                $cd = $_POST['cds'];
+                $vname = $_POST['vname'];
+                $nname = $_POST['nname'];
+                $address = $_POST['address'];
+                $plz = $_POST['plz'];
+                $place = $_POST['place'];
+
+
+                if($cd >= 500)
+                {
+                    
+                }
+            }
         
         ?>
     </body>
