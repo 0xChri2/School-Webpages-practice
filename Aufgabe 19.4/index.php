@@ -65,7 +65,17 @@
 
                 if($cd >= 500)
                 {
+                    $sending = 0;
+                    $netto = (10 * $cd + $sending) * 0.75;
+                    $brutto = $netto * 1.19;
                     
+                }
+                
+                if($cd >= 100)
+                {
+                    $sending = 0;
+                    $netto = (10 * $cd + $sending) * 0.88;
+                    $brutto = $netto * 1.19;
                 }
             }
         
