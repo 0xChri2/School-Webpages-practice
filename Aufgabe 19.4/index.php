@@ -1,6 +1,6 @@
 <?php
      session_start();
-     require_once ('lib/fpdf.php');
+     //require_once ('lib/fpdf.php');
      $_SESSION["permit"]= "no";
 ?>
 
@@ -143,10 +143,20 @@
                         echo"<br /><br /><br /><center><h2>Danke für ihre Bestellung ".$vname." ".$nname.":</h2><br/>";
                         echo "<table border='1' text-decoration='center'><tr><th>Anzahl</th><th>EP</th><th>Rabatt</th><th>Nettobetrag</th><th>Versand</th><th>MwSt</th><th>Gesamtbetrag</th><th>Skontobetrag</th></tr>";
                         echo"<tr><td>".$cd."</td>"."<td>10,00</td><td>".$discounttxt."%</td><td>".$netto.",00</td><td>".$sending."</td><td>".$MwSt."</td><td>".$brutto."</td><td>".$skonto."</td></tr></table></center>";
+                        
+                        require('lib/fpdf.php');
+
+                        $pdf = new FPDF();
+                        $pdf->AddPage();
+                        $pdf->SetFont('Arial','B',16);
+                        $pdf->Cell(40,10,'Hello World!');
+                        $pdf->Output();
+
+
                         if($_SESSION["permit"] == "permit")
-                    {
-                        echo"<br /><center><a href='rechnung.pdf'><button>PDF file</button></a></center>";
-                    }                    
+                        {
+                            echo"<br /><center><a href='rechnung.pdf'><button>PDF file</button></a></center>";
+                        }                    
                 }
             
             }
