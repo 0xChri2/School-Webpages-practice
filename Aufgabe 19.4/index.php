@@ -2,7 +2,6 @@
      session_start();
      require_once ('lib/fpdf.php');
      $_SESSION["permit"]= "no";
-     //action="out.php"
 ?>
 
 
@@ -26,9 +25,7 @@
                     <input type="submit" name="submit" value="Submit!"/></h3>
                 </form>
         </center>
-        <?php 
-        
-        ?>
+
         <br /><br /><br />
         <table border="1" style="margin-left: auto; margin-right: auto;">
         <tbody><tr>
@@ -150,7 +147,7 @@
                     {
                         echo"<br /><center><a href='rechnung.pdf'><button>PDF file</button></a></center>";
                     }                    
-                    }
+                }
             
             }
         
