@@ -1,0 +1,28 @@
+body {
+		background-color: #eee;
+		font-family: calibri, sans-serif;
+		font-size: 24px;
+		}
+ 
+h1 {
+		font-family:"courier new";
+		border-bottom:  2px dotted #222222;
+		}
+					
+h2	{
+		font-size: 80%;
+		}
+		
+h3{
+		font-size: 1.2em;
+		font-style:italic;
+		}
+	
+	
+form{
+	font-size: 0.6em;
+	}
+	
+ul{
+	list-style: circle;
+	}
