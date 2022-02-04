@@ -87,8 +87,7 @@
             <br/>
             <h4>Wir sind ein Handwerkerbetrieb für alle <a href="pages/Tätigkeiten.php">Tätigkeiten</a>. Unsere Firma ist dabei auf Malerei und Lackiererei spezialisiert.</h4>
             <hr>
-            <div class="centertext"><h3><a href="https://bit.ly/3sznVYz" style="text-decoration: none;">Diese Seite wurde erstellt von Christoph Riedel und Jan Werth auf Grundlage unser Handwerker Seite </a></h3></div>
-
+            <div class="centertext"><h3><a href="https://bit.ly/3sznVYz" style="text-decoration: none;">Diese Seite wurde erstellt von Chris und Berty auf Grundlage unser Handwerker Seite </a></h3></div>
 
         </div>
 

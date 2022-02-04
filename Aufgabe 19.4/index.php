@@ -1,3 +1,11 @@
+<?php
+     session_start();
+     require_once ('lib/fpdf.php');
+     $_SESSION["permit"]= "no";
+     //action="out.php"
+?>
+
+
 <!DOCTYPE html>
     <head>
         <meta content="utf-8" />
@@ -6,17 +14,21 @@
     <body>
         <center>
             <h1>CD</h1>
-                <form method="post">
-                <h3>CD Anzahl:<input type="number" name="cds" max="1000" min="1" required /> <br />
-                <table><td>
-                <tr>Vorname </tr><tr><input type="text" name="vname" required /></tr></td><br />
-                Nachname<input type="text" name="nname" required /> <br />
-                Adresse <input type="text" name="address" placeholder="Musterstrasse 20" required /> <br />
-                PLZ:    <input type="text" name="plz" placeholder="40724" min="5" max="5" required /> <br />
-                Ort:    <input type="text" name="place" placeholder="Hilden" required />
-                </table>
-            <input type="submit" name="submit" value="Submit!"/></h3>
-        </form>
+                <form method="post" >
+                    <h3>CD Anzahl:<input type="number" name="cds" max="1000" min="1" required /> <br />
+                    <table><td>
+                        <tr>Vorname </tr><tr><input type="text" name="vname" required /></tr></td><br />
+                        Nachname<input type="text" name="nname" required /> <br />
+                        Adresse <input type="text" name="address" placeholder="Musterstrasse 20" required /> <br />
+                        PLZ:    <input type="text" name="plz" placeholder="40724" minlength="5" maxlength="5" required /> <br />
+                        Ort:    <input type="text" name="place" placeholder="Hilden" required />
+                    </table>
+                    <input type="submit" name="submit" value="Submit!"/></h3>
+                </form>
+        </center>
+        <?php 
+        
+        ?>
         <br /><br /><br />
         <table border="1" style="margin-left: auto; margin-right: auto;">
         <tbody><tr>
@@ -53,16 +65,19 @@
         </center>
 
         <?php 
+           
             if(isset($_POST['submit']) == true)
             {
                 $cd = intval(trim($_POST['cds']));
                 $vname = trim($_POST['vname']);
                 $nname = trim($_POST['nname']);
                 $address = trim($_POST['address']);
-                $plz = trim($_POST['plz']);
+                $plz = intval($_POST['plz']);
                 $place = trim($_POST['place']);
                 $error = false;
-                $errormessage[] = array();
+                
+                $errormessage = array();
+                $costs = 10;
 
                 if($vname == "")
                 {
@@ -74,12 +89,7 @@
                     $errormessage[] = "Bitte Geben Sie Ihren Vornamen an.";
                     $error = true; 
                 }
-                if(is_numeric($plz))
-                {
-                    $errormessage[] = "Die Postleitzahl darf keine Buchstaben enthalten.";
-                    $error = true; 
-                }
-                if(strlen($plz) == 5)
+                if(!is_numeric($plz))
                 {
                     $errormessage[] = "Die Postleitzahl darf keine Buchstaben enthalten.";
                     $error = true; 
@@ -92,9 +102,12 @@
                    
                         echo"<center><h3>".$errors."</h3></center>";
                     }
+                    session_unset();   
+                    session_destroy();
                 }
                 if($error == false)
-                {   
+                {       
+                    $_SESSION["permit"] = "permit";
                     if($cd >= 1)
                     {
                         $sending = "Keine Versand";
@@ -125,17 +138,19 @@
                         $discount = 0.75;
                         $discounttxt = 25;
                     }
-                    $netto = '10' * $cd;
-                    $netto = $netto + $sending;
-                    $netto = $netto * $discount;
-                    //$netto = (10 * $cd + $sending) * $discount;
-                    $MwSt = $netto * 0.19;
-                    $brutto = $netto * 1.19;
-                    $skonto = $brutto * 0.03;
-                    echo"<br /><br /><br /><center><h2>Danke für ihre Bestellung ".$vname." ".$nname.":</h2><br/>";
-                    echo "<table border='1' text-decoration='center'><tr><th>Anzahl</th><th>EP</th><th>Rabatt</th><th>Nettobetrag</th><th>Versand</th><th>MwSt</th><th>Gesamtbetrag</th><th>Skontobetrag</th></tr>";
-                    echo"<tr><td>".$cd."</td>"."<td>10,00</td><td>".$discounttxt."%</td><td>".$netto.",00</td><td>".$sending."</td><td>".$MwSt."</td><td>".$brutto."</td><td>".$skonto."</td></tr></table></center>";
-                }
+
+                        $netto = ($costs * $cd + $sending) * $discount;
+                        $MwSt = $netto * 0.19;
+                        $brutto = $netto * 1.19;
+                        $skonto = $brutto * 0.03;
+                        echo"<br /><br /><br /><center><h2>Danke für ihre Bestellung ".$vname." ".$nname.":</h2><br/>";
+                        echo "<table border='1' text-decoration='center'><tr><th>Anzahl</th><th>EP</th><th>Rabatt</th><th>Nettobetrag</th><th>Versand</th><th>MwSt</th><th>Gesamtbetrag</th><th>Skontobetrag</th></tr>";
+                        echo"<tr><td>".$cd."</td>"."<td>10,00</td><td>".$discounttxt."%</td><td>".$netto.",00</td><td>".$sending."</td><td>".$MwSt."</td><td>".$brutto."</td><td>".$skonto."</td></tr></table></center>";
+                        if($_SESSION["permit"] == "permit")
+                    {
+                        echo"<br /><center><a href='rechnung.pdf'><button>PDF file</button></a></center>";
+                    }                    
+                    }
             
             }
         
