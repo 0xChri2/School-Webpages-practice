@@ -101,6 +101,7 @@
                     }
                     session_unset();   
                     session_destroy();
+                    exit;
                 }
                 if($error == false)
                 {       
@@ -144,18 +145,23 @@
                         echo "<table border='1' text-decoration='center'><tr><th>Anzahl</th><th>EP</th><th>Rabatt</th><th>Nettobetrag</th><th>Versand</th><th>MwSt</th><th>Gesamtbetrag</th><th>Skontobetrag</th></tr>";
                         echo"<tr><td>".$cd."</td>"."<td>10,00</td><td>".$discounttxt."%</td><td>".$netto.",00</td><td>".$sending."</td><td>".$MwSt."</td><td>".$brutto."</td><td>".$skonto."</td></tr></table></center>";
                         
-                        require('lib/fpdf.php');
-
-                        $pdf = new FPDF();
-                        $pdf->AddPage();
-                        $pdf->SetFont('Arial','B',16);
-                        $pdf->Cell(40,10,'Hello World!');
-                        $pdf->Output();
+                        $_SESSION["vname"] = $vname;
+                        $_SESSION["nname"] = $nname;
+                        $_SESSION["cd"] = $cd;
+                        $_SESSION["discounttxt"] = $discounttxt;
+                        $_SESSION["netto"] = $netto;
+                        $_SESSION["sending"] = $sending;
+                        $_SESSION["MwSt"] = $MwSt;
+                        $_SESSION["brutto"] = $brutto;
+                        $_SESSION["skonto"] = $skonto;#
+                        $_SESSION["address"] = $address;
+                        $_SESSION["plz"] = $plz;
+                        $_SESSION["place"] = $place;
 
 
                         if($_SESSION["permit"] == "permit")
                         {
-                            echo"<br /><center><a href='rechnung.pdf'><button>PDF file</button></a></center>";
+                            echo"<br /><center><a href='rechnung.php'><button>PDF file</button></a></center>";
                         }                    
                 }
             
