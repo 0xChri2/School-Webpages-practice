@@ -22,9 +22,9 @@
             <h1>CD</h1>
                 <form method="post" >
                 <h3>CD Anzahl: <br /><input type="number" name="cds" max="1000" min="1" required /> <br /> <br />
-                        Vorname <br /><input type="text" name="vname" required /><br /><br />
-                        Nachname <br /><input type="text" name="nname" required /> <br /><br />
-                        Adresse <br /><input type="text" name="address" placeholder="Musterstrasse 20" required /> <br /><br />
+                        Vorname: <input type="text" name="vname" required />
+                        Nachname: <input type="text" name="nname" required /> <br /><br />
+                        Adresse: <br /><input type="text" name="address" placeholder="Musterstrasse 20" required /> <br /><br />
                         PLZ:    <br /><input type="text" name="plz" placeholder="40724" minlength="5" maxlength="5" required /> <br /><br />
                         Ort:    <br /><input type="text" name="place" placeholder="Düsseldorf" required /><br /> <br />
                     <input type="submit" name="submit" value="Submit!"/></h3>
