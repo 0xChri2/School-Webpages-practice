@@ -620,7 +620,8 @@ function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link
 			$s .= sprintf('%.2F %.2F m %.2F %.2F l S ',$x*$k,($this->h-($y+$h))*$k,($x+$w)*$k,($this->h-($y+$h))*$k);
 	}
 	if($txt!=='')
-	{
+	{	
+		$txt = iconv("utf-8","cp1252", $txt);
 		if(!isset($this->CurrentFont))
 			$this->Error('No font has been set');
 		if($align=='R')

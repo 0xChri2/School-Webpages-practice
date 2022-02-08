@@ -115,7 +115,7 @@
                     {
                         $sending = "Keine Versand";
                         $discount = 0;
-                        $discounttxt = "Keine Rabatt";
+                        $discounttxt = 0;
                     }
                     if($cd >= 10)
                     {
@@ -145,7 +145,7 @@
                         $netto = ($costs * $cd + $sending) * $discount;
                         $MwSt = $netto * 0.19;
                         $brutto = $netto * 1.19;
-                        $skonto = $brutto * 0.03;
+                        $skonto = Round($brutto * 0.03, 2);
                         echo"<br /><br /><br /><center><h2>Danke für ihre Bestellung ".$vname." ".$nname.":</h2><br/>";
                         echo "<table border='1' text-decoration='center'><tr><th>Anzahl</th><th>EP</th><th>Rabatt</th><th>Nettobetrag</th><th>Versand</th><th>MwSt</th><th>Gesamtbetrag</th><th>Skontobetrag</th></tr>";
                         echo"<tr><td>".$cd."</td>"."<td>10,00</td><td>".$discounttxt."%</td><td>".$netto.",00</td><td>".$sending."</td><td>".$MwSt."</td><td>".$brutto."</td><td>".$skonto."</td></tr></table></center>";
