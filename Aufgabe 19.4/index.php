@@ -110,7 +110,7 @@
                 }
                 if($error == false)
                 {       
-                    $_SESSION["permit"] = "permit";
+                    $_SESSION['permit'] = 1;
                     if($cd >= 1)
                     {
                         $sending = "Keine Versand";
@@ -164,7 +164,7 @@
                         $_SESSION["place"] = $place;
 
 
-                        if($_SESSION["permit"] == "permit")
+                        if($_SESSION['permit'] == 1)
                         {
                             echo"<br /><center><a href='rechnung.php'><button>PDF file</button></a></center>";
                         }                    
