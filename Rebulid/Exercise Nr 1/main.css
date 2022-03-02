@@ -68,3 +68,35 @@
     position: absolute;
     left: 15%;
 }
+
+@media only screen and (max-width: 600px) 
+{   
+    .body
+    {
+        border: 0;
+    }
+    .head
+    {
+       width: 100%; 
+       margin-left: 0px;
+    }
+    .menu
+    {
+       width: 100%; 
+       margin-left: 0px;
+    }
+    .content
+    {
+       width: 100%; 
+       margin-left: 0px;
+    }
+    .foot
+    {
+       width: 100%; 
+       margin-left: 0px;
+       position: relative;
+       height: 100%;
+       text-align: center;
+       left: 0%;
+    }
+}
