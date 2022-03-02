@@ -13,7 +13,7 @@
     background-color: lightgray;
     border: solid 1px red;
     width: 70%;
-    height: 80px;
+    height: 130px;
     margin-left: 15%;
     margin-top: 2%;
 }
@@ -21,29 +21,29 @@
 .menu
 {
     background-color: lightgray;
-    border: solid 1px blue;
+    border: solid 1px red;
     color: black;
     width: 70%;
     margin-left: 15%;
-    height: 10px;
+    height: 20px;
     text-align: center;
     padding-bottom: 1%;
-    padding-top: 0%;
+    padding-top: 1%;
 }
-.menu a
+.body a
 {
     text-decoration: none;
     color: grey;
 }
 
-.menu a:hover
+.body a:hover
 {   
     text-decoration: none;
    font-weight: bold;
-   color: grey;
+   color: black;
 }
 
-.menu a:active
+.body a:active
 {
     color: red;
     font-weight: bold;
@@ -57,7 +57,7 @@
     border: solid 1px red;
     width: 70%;
     margin-left: 15%;
-    height: 100px;
+    height: 100%;
     text-align: center;
     padding-bottom: 1%;
     padding-top: 0%;
@@ -66,5 +66,5 @@
 {
     text-align: left;
     position: absolute;
-    left: 16%;
+    left: 15%;
 }
