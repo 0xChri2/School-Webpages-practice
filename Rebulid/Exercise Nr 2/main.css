@@ -10,10 +10,11 @@
 .head
 {
     background-color: lightgray;
-    width: 100%;
+    width: 99.7%;
     height: 15.2%;
     border: solid 1px red;
     position: absolute;
+
 }
 
 .columnleft
@@ -58,7 +59,7 @@
 {   
     background-color: gray;
     top: 15.4%;
-    right: 0%;
+    right: 0.1%;
     width: 15%;
     height: 60%;
     position: absolute;
@@ -74,4 +75,6 @@
     height: 6%;
     position: absolute;
     bottom: 1%;
+    right: 1%;
+    left: 1%;
 }
