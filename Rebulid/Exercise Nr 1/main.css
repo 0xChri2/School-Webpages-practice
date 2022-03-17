@@ -10,12 +10,13 @@
 
 .head
 {
-    background-color: lightgray;
-    border: solid 1px #BD3D3A;
+    /*background-color: #BD3D3A;
+    border: solid 1px #BD3D3A;*/
     width: 70%;
-    height: 130px;
+    height: 125px;
     margin-left: 15%;
     margin-top: 2%;
+    padding-top: 1%;
 }
 
 .menu
