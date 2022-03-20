@@ -1,145 +1,48 @@
-
-.body
-{
-    border: solid 1px #BD3D3A;
+.body{
     width: 100%;
-    height: 70%;
-    margin: -8px -8px -8px -8px;
-    padding-bottom: 10px;
+    border: solid 1px red;
+    box-sizing: content-box;
+    margin: -8px;
 }
 
-.head
-{
-    /*background-color: #BD3D3A;
-    border: solid 1px #BD3D3A;*/
-    width: 70%;
-    height: 125px;
-    margin-left: 15%;
-    margin-top: 2%;
-    padding-top: 1%;
-}
-
-.menu
-{
-    background-color: lightgray;
-    border: solid 1px #BD3D3A;
-    color: black;
-    width: 70%;
-    margin-left: 15%;
-    height: 20px;
+.head{
     text-align: center;
-    padding-bottom: 1%;
-    padding-top: 1%;
-}
-.body a
-{
-    text-decoration: none;
-    color: grey;
+    width: 70%;
+    border: solid 1px red;
+    margin-left: 15%;
+    margin-top: 1%;
 }
 
-.body a:hover
-{   
-    text-decoration: none;
-   font-weight: bold;
-   color: black;
+.menu{
+    text-align: center;
+    width: 70%;
+    border: solid 1px red;
+    margin-left: 15%;
 }
 
-.body a:active
-{
-    color: #BD3D3A;
+.menu a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover{
     font-weight: bold;
 }
 
+.menu a:active{
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+}
 
-
-.content
-{
-    background-color: white;
-    border: solid 1px #BD3D3A;
-    width: 70%;
-    margin-left: 15%;
-    height: 100%;
+.content{
     text-align: center;
-    padding-bottom: 1%;
-    padding-top: 0%;
-}
-.foot
-{
-    text-align: left;
-    position: absolute;
-    left: 15%;
+    width: 70%;
+    border: solid 1px red;
+    margin-left: 15%;
+    height: auto;
 }
 
-@media screen {
-    .printhead
-    {
-        display: none;
-    }
-    
-}
-
-@media only screen and (max-width: 600px) 
-{   
-    .body
-    {
-        border: 0;
-    }
-    .head
-    {
-       width: 100%; 
-       margin-left: 0px;
-    }
-    .menu
-    {
-       width: 100%; 
-       margin-left: 0px;
-    }
-    .content
-    {
-       width: 100%; 
-       margin-left: 0px;
-    }
-    .foot
-    {
-       width: 100%; 
-       margin-left: 0px;
-       position: relative;
-       height: 100%;
-       text-align: center;
-       left: 0%;
-    }
-}
-
-@media print 
-{
-    .menu
-    {
-        display: none;
-    }
-    .head
-    {
-        border-color: black;
-        height: 100px;
-    }
-    .head img
-    {
-        display: none;
-
-    }
-    .body
-    {
-        border-color: black;
-    }
-    .body a:active
-    {
-        color: black;
-    }
-
-    .content
-    {
-        border-color: black;
-    }
-    
-
-
+.foot{
+    padding-left: 15%;
 }
