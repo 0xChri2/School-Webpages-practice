@@ -13,7 +13,7 @@ html{
     float: left;
     width: 15%;
     box-sizing: border-box;
-    height: 80%;
+    height: 50em;
 }
 
 .content{
@@ -29,7 +29,7 @@ html{
     float: left;
     width: 15%;
     box-sizing: border-box;
-    height: 80%;
+    height: 50em;
     border: solid 1px red;
 }
 
