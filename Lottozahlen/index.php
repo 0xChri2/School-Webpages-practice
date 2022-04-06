@@ -14,8 +14,9 @@ require'phpqrcode/qrlib.php';
 <body>
     <div class="start">
     <center>
-    <h1>Lottzahlen</h1>
+    <u><h1>Lottzahlen</h1></u>
     <br />
+    <h4>Dies ist ein Lottospiel ohne Einsatz. Sie müssen mindestens 18 Jahre sein<br /> und können pro Zahl nur zwischen 1 und 49 angeben.</h4><br />
     <form method="POST">
         Alter <input type="number" name="Alter" placeholder="20" required /><br /><br />
         Zahl 1 <input type="number" name="Zahl1" placeholder="12" min="1" max="49" required /><br /><br />
@@ -59,29 +60,38 @@ require'phpqrcode/qrlib.php';
             }
             if($error == false)
             {   
+               
                 $gesamtlotto = $Zahlen[0] ." ". $Zahlen[1] ." ". $Zahlen[2] ." ". $Zahlen[3] ." ". $Zahlen[4] ." ". $Zahlen[5];
                 $gesamttipp = $tipp[0] ." ". $tipp[1] ." ". $tipp[2] ." ". $tipp[3] ." ". $tipp[4] ." ". $tipp[5];
                 $qrcode = "Lotto:".$gesamtlotto. "Dein Tipp:".$gesamttipp;
                 if($gesamtlotto == $gesamttipp){
-                    echo "</h2>Glückwunsch du hast gewonnen!</h2>";
+                    echo"<br/> <img src='https://www.langweiledich.net/wp-content/uploads/2016/06/giphy-2.gif' /> <br />";
+                    echo "<h2>Glückwunsch du hast gewonnen!</h2>";
+                    echo"<h3>Jetzt bist du Reich</h3>";
+                    $won = true;
                 }
                 else{
+                    echo"<br /> <img src='https://i.gifer.com/origin/b4/b4993c2b9410a7df76c72bf42af21fc4.gif' /> <br/>";
                     echo "<h2>Du hast leider verloren!</h2>";
+                    echo"<h3>Viel Glück beim nächtsen mal.</h3>";
+                    $won = false;
                 }
-
-                echo"<h4>Die Lottozahlen sind:</h4>";
+                
+                echo"<br/><table border='1px' width='100%'><tr><td><h4>Die Lottozahlen:</td>";
                 foreach($Zahlen as $Zahl){
-                    echo $Zahl . " ";
+                    echo "<td>". $Zahl . "</td>";
                 }
-               
-                QRcode::png($qrcode ,'QRCODE/Zahlen.png');
-                echo"</div><br /><div class='qrcode_img'><img src='QRCODE/Zahlen.png' /></div>";
-                echo "<br /><br /><div class='ending'>";
-                echo"<h4>Ihre Lottozahlen sind:</h4>";
+                echo"</h4></tr>";
+                echo"<tr><td><h4>Ihre Lottozahlen: </td>";
 
                 foreach($tipp as $Zahl){
-                    echo $Zahl . " ";
+                    echo "<td>". $Zahl . "</td>";
                 }
+                echo"</tr>";
+                QRcode::png($qrcode ,'QRCODE/Zahlen.png');
+                echo"</h4></table></div><br/><br /><div class='qrcode_img'><img src='QRCODE/Zahlen.png' /></div>";
+                echo "<br /><br /><div class='ending'>";
+               
             }
             else if($error == true)
             {
