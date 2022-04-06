@@ -1,0 +1,20 @@
+body
+{
+    text-align: center;
+}
+
+@media print {
+
+    .start{
+        display: none;
+    }
+    .ending
+    {
+        display: none;
+    }
+    .qrcode_img{
+        display: block;
+        padding-left: 45%;
+        padding-top: 45%;
+    }
+}
