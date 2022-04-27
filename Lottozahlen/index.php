@@ -6,15 +6,16 @@ require'phpqrcode/qrlib.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <title>Lottozahlen</title>
 </head>
 <body>
     <div class="start">
     <center>
+    <div class="banner">
     <u><h1>Lottzahlen</h1></u>
+    </div>
     <br />
     <h4>Dies ist ein Lottospiel ohne Einsatz. Sie müssen mindestens 18 Jahre sein<br /> und können pro Zahl nur zwischen 1 und 49 angeben.</h4><br />
     <form method="POST">
@@ -25,7 +26,7 @@ require'phpqrcode/qrlib.php';
         Zahl 4 <input type="number" name="Zahl4" placeholder="12" min="1" max="49" required /><br /><br />
         Zahl 5 <input type="number" name="Zahl5" placeholder="5" min="1" max="49" required /><br /><br />
         Zahl 6 <input type="number" name="Zahl6" placeholder="2" min="1" max="49" required /><br /><br />
-        <input type="submit" value="Tippen abgeben" name="submit" />
+        <div class="submit"><input type="submit" value="Tippen abgeben" name="submit" /></div>
 
     </form>
     <?php
@@ -91,6 +92,14 @@ require'phpqrcode/qrlib.php';
                 QRcode::png($qrcode ,'QRCODE/Zahlen.png');
                 echo"</h4></table></div><br/><br /><div class='qrcode_img'><img src='QRCODE/Zahlen.png' /></div>";
                 echo "<br /><br /><div class='ending'>";
+            
+
+                $date = date("d.m.Y");
+                $time = date("H:i:s");
+                $file = fopen("csv/lottozahlen.csv", "a");
+                $csv = $date . ";" . $time . ";" . $Alter . ";" . $gesamtlotto . ";" . $gesamttipp . ";" . $won . "\n";
+                fwrite($file, $csv);
+                fclose($file);
                
             }
             else if($error == true)

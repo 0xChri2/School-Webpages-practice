@@ -1,0 +1,35 @@
+body
+{
+    text-align: center;
+    background-color: #282a32;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+body input
+{
+    background-color: #282a32;
+    color: #FFFFFF;
+}
+
+.submit input
+{
+    background-color: #282a32;
+    color: #FFFFFF;
+    font-size: 0.8em;
+}
+
+@media print {
+
+    .start{
+        display: none;
+    }
+    .ending{
+        display: none;
+    }
+    .qrcode_img{
+        display: block;
+    }
+}
