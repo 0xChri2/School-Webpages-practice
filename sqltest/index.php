@@ -10,7 +10,6 @@
             Vorname <input type="text" name="nname"/><br/>
             Geburtstag<input type="date" name="birthday"/><br/>
             <input type="submit" value="Absenden" name="submit" />
-
         </form>
         <?php
             $hostname = "localhost";
@@ -32,6 +31,20 @@
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
             }
+            if(isset($_POST['submit'])){
+                $sql = "SELECT * FROM person";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    echo "<table><tr><th>Vorname</th><th>Nachname</th><th>Geburtstag</th></tr>";
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr><td>" . $row["vname"]. "</td><td>" . $row["nname"]. "</td><td>" . $row["birthday"]. "</td></tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "0 results";
+                }
+            }
+
             $conn->close();
         ?>
     </body>
